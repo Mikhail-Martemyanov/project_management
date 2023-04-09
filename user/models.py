@@ -3,12 +3,12 @@ from django.db import models
 
 class User(models.Model):
     EMPLOYEE_CHOICES = [
-        ('m', 'Менеджер'),
-        ('k', 'Консультант'),
+        ('manager', 'Менеджер'),
+        ('Consultant', 'Консультант'),
     ]
 
     name = models.CharField(max_length=100, verbose_name='Имя сотрудника')
-    employee = models.CharField(max_length=1, choices=EMPLOYEE_CHOICES, default='k', verbose_name='Должность')
+    employee = models.CharField(max_length=10, choices=EMPLOYEE_CHOICES, default='Consultant', verbose_name='Должность')
 
     def __str__(self):
         return self.name
